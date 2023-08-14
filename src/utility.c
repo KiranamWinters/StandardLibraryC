@@ -56,23 +56,5 @@ void print_num(int num){
     write(STDIN,str_buffer,count_string(str_buffer));
 }
 
-void init_stats(stat* buf){
-    buf->blockNumber = 0;
-    buf->blockSize = 0;
-    buf->describe_device = 0;
-    buf->device_id = 0;
-    buf->file_size = 0;
-    buf->GroupID = 0;
-    buf->hardlink = 0;
-    buf->st_inode = 0;
-    buf->UserID = 0;
-    buf->st_mode = 0;
-    timeSpec var1 = {0,0};
-    timeSpec var2 = {0,0};
-    timeSpec var3 = {0,0};
-    buf->last_access_time = var1;
-    buf->last_modified_time = var2;
-    buf->last_statusChange_time = var3;
-}
 
 

@@ -59,13 +59,13 @@ int open(const char* filename, int flags, umode_t mode){
 	return fd;
 }
 
-int stats(const char* filepath,stat* buff){
+stat* stats(const char* filepath, stat* buff){
     asm volatile
     (
         "syscall"
         :"=D"(buff)
         :"a"(STAT), "D"(buff)
     );
-    return 0;
+    return buff;
 }
 

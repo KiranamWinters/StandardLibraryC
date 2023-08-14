@@ -29,21 +29,21 @@ typedef struct  timeSpec  //time specification in seconds and nanoseconds
     time_t time_nano_seconds;
 } timeSpec;
 
-struct s_stat{
-    unsigned short st_mode;
-    unsigned int st_inode;  //inode stores the information about a file | This variable stores the id of inode
-    unsigned short device_id; //tells us in which device our file is
-    unsigned short describe_device;  //particular file represents particular device
-    int hardlink;
-    unsigned int UserID;
-    unsigned int GroupID;
-    unsigned int file_size;   //size of the file
-    timeSpec last_access_time;
-    timeSpec last_modified_time;
-    timeSpec last_statusChange_time; //last time permission|status was changed
-    unsigned long blockSize; 
-    unsigned long blockNumber; //tells us number of block which is divisible by 512
+struct s_stat {
+	unsigned short st_dev;
+	unsigned short st_ino;
+	unsigned short st_mode;
+	unsigned short st_nlink;
+	unsigned short st_uid;
+	unsigned short st_gid;
+	unsigned short st_rdev;
+	unsigned long  st_size;
+	unsigned long  st_atime;
+	unsigned long  st_mtime;
+	unsigned long  st_ctime;
 };
+
+
 
 typedef struct s_stat stat;
 
@@ -52,7 +52,7 @@ size_t write(unsigned int, const char*, size_t);
 size_t read(unsigned int, const char*, size_t);
 size_t count (int number);
 int open(const char* , int, umode_t );
-int stats(const char* filepath, stat* buff);
+stat* stats(const char* filepath, stat* buff);
 
 
 #endif
